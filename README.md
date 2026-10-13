@@ -2,6 +2,8 @@
 
 AI 氛围编程（Vibe Coding）公选课学期课题 · **校园办事问答（含助手）**
 
+[![GitHub](https://img.shields.io/badge/GitHub-ALEX--CEBER%2Fsztu--campus--helper-181717?logo=github)](https://github.com/ALEX-CEBER/sztu-campus-helper)
+
 把学校散落在各官网/通知里的办事流程（教务、宿舍、图书馆、校园卡、奖助、新生问题）
 整理成一个可以**提问 → 秒回答案**的网页问答台，配有二次元看板娘"深小技"。
 
@@ -45,5 +47,12 @@ python scripts/build_index.py   # 重新生成 data/qa.json，刷新网页即可
 知识库条目为通用流程整理稿，标注 `[待核实]` 的内容以学校官方通知为准；
 上线前需逐条核实并替换来源。
 
-## 👥 团队
-- 姓名-学号（登记表为准）
+## 👤 作者
+- GitHub：[ALEX-CEBER](https://github.com/ALEX-CEBER)
+- 深圳技术大学 · 工程物理学院 · 光电信息科学与工程（大一）
+- 课程：AI 氛围编程（Vibe Coding）公选课 · 2026 秋
+- 仓库：https://github.com/ALEX-CEBER/sztu-campus-helper
+- 线上预览（GitHub Pages）：https://alex-ceber.github.io/sztu-campus-helper/
+
+> 开发方式：全程 AI 协作（WorkBuddy 规划与文档 + CodeBuddy 编码），
+> 项目规则见 `AGENTS.md`，版本记录见 `CHANGELOG.md`。

@@ -8,7 +8,7 @@
 | 课题 | 校园办事问答（含助手） |
 | 项目名 | SZTU 校园办事万事屋 · 二次元问答台 |
 | 组队 | 【填：独立 / 与 XXX 组队】 |
-| GitHub 仓库 | 【填：https://github.com/用户名/sztu-campus-helper 】（注册后补） |
+| GitHub 仓库 | https://github.com/ALEX-CEBER/sztu-campus-helper |
 | 本地路径 | `C:\Users\you\WorkBuddy\2026-10-13-12-17-14\sztu-campus-helper` |
 | 当前版本 | **v0.1.1**（v0.1.0 立项原型 → v0.1.1 检索修复 + 单机版） |
 | 技术栈 | 原生 HTML / CSS / JavaScript + Python 构建脚本 + Git（零框架、零依赖） |
