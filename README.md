@@ -11,12 +11,18 @@ AI 氛围编程（Vibe Coding）公选课学期课题 · **校园办事问答（
 - 二次元元素：看板娘立绘 + 分类气泡 + 拟人化文案
 - AI 增强预留：校内模型接口（仅上课当晚开放）作为检索零命中时的兜底
 
-## 🚀 本地运行（3 种方式任选）
-1. 双击 `start.bat`（自动起服务器并打开浏览器）
-2. 命令行：`python -m http.server 8000`，浏览器访问 `http://localhost:8000/web/`
-3. VS Code 装 Live Server 插件，右键 `web/index.html` → Open with Live Server
+## 🚀 怎么打开（任选）
 
-> ⚠️ 不要直接双击 index.html 打开（file:// 会被浏览器拦截 fetch）
+**① 最省事：双击 `dist/SZTU校园办事万事屋.html`**
+单文件版——CSS/JS/知识库/看板娘全内嵌，2.9MB，不需要服务器、断网也能用、可直接发给同学。
+> 改了知识库后要重新生成：`python scripts/build_standalone.py`
+
+**② 开发模式（改代码时用）**
+- 双击 `start.bat`，或命令行 `python -m http.server 8000` → 访问 `http://localhost:8000/web/`
+- VS Code 装 Live Server 插件，右键 `web/index.html` → Open with Live Server
+
+> 说明：知识库已同时生成 `data/qa.js` 内嵌数据，所以直接双击 `web/index.html` 也能提问；
+> 只有在预览工具不支持上级目录路径时才需要 ① 或 ②。
 
 ## 🛠 改完知识库后
 ```bash

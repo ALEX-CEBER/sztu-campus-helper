@@ -63,6 +63,8 @@ main { max-width: 960px; margin: 0 auto; padding: 0 16px 48px; }
 }
 .card .src { margin-top: 8px; font-size: 12px; color: var(--muted); }
 .card .score { float: right; font-size: 11px; color: #b3c2dd; }
+.warn-tag { font-size: 11px; color: #d48806; }
+.chip.static { background: #fff; color: var(--muted); cursor: default; border-color: var(--line); }
 .empty { text-align: center; color: var(--muted); padding: 40px 0; }
 .mascot-say {
   background: #fff7e6; border-left-color: #ffc53d;

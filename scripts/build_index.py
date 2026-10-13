@@ -66,6 +66,14 @@ def main():
     )
     print(f"共 {len(all_items)} 条 -> {OUTPUT.relative_to(ROOT)}")
 
+    # 额外生成 qa.js：把数据内嵌成 JS 变量，这样双击 index.html（file://）也能用
+    JS = ROOT / "data" / "qa.js"
+    JS.write_text(
+        "window.QA_DATA = " + json.dumps(all_items, ensure_ascii=False) + ";\n",
+        encoding="utf-8",
+    )
+    print(f"已生成内嵌数据 -> {JS.relative_to(ROOT)}（双击网页也能提问）")
+
 
 if __name__ == "__main__":
     main()
