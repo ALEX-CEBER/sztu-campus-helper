@@ -12,6 +12,9 @@
 4. **前端零依赖**：只用原生 HTML/CSS/JS，不引入 npm/框架（打包 zip < 10MB、可静态部署 GitHub Pages）。
 5. **中文文案**：界面与注释用简体中文；代码文件保存为 UTF-8。
 6. **每次改动后**：git add + commit，commit message 用中文一句话（如 `新增：图书馆分类 5 条问答`）。
+7. **版本记录（写报告要用）**：完成一个可运行增量后，必须在 `CHANGELOG.md` 顶部追加一条
+   （日期 / 变更 / 验收方式 / commit），并 `git tag -a vX.Y.Z -m "..."` 打版本标签。
+   周报素材放 `reports/`，AI 使用记录放 `reports/ai-log-weekNN.md`。
 
 ## 常用命令
 - 启动本地预览：`python -m http.server 8000` → http://localhost:8000/web/
