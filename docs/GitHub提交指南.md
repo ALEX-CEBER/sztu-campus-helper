@@ -37,6 +37,38 @@ git add -A && git commit -m "完善：……" && git push
 
 ---
 
+## 一·补：本机已选用的通道 —— SSH over 443（推荐）
+
+校园网常封 22 端口、且代理会破坏 HTTPS 证书校验，因此本机改成 **SSH 走 443 端口**：
+`~/.ssh/config` 已写入：
+
+```
+Host github.com
+  HostName ssh.github.com
+  Port 443
+  User git
+  IdentityFile ~/.ssh/id_ed25519
+```
+
+**你只需做两件事**（各 1 分钟）：
+
+1. **建空仓库**：GitHub → New repository → `sztu-campus-helper` → Public → 不要勾 README
+2. **添加 SSH 公钥**（只需一次）：
+   GitHub 右上角头像 → **Settings → SSH and GPG keys → New SSH key**
+   → Title 填 `My PC` → Key 粘贴下面这整行（`docs/SSH公钥.txt` 里也有）：
+
+```
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIML860eZYdp8MMb7i9TqQjhZO79FTJhRgSdtoNEAsTbI 202600802020@stumail.sztu.edu.cn
+```
+
+完成后回来跟我说"公钥加好了"，我立刻把全部代码推送上去（你不用再操作）。
+验证命令（出现 "Hi ALEX-CEBER! You've successfully authenticated" 即成功）：
+```bash
+ssh -T git@github.com
+```
+
+> 备选：不想用 SSH 就双击 `推送到GitHub.bat`（HTTPS + 浏览器授权），脚本内置了证书校验失败自动重试。
+
 ## 二、期末要填的链接是什么
 
 | 表格里要填的 | 填什么 | 示例 |

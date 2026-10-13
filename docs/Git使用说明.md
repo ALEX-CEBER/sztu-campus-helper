@@ -79,10 +79,12 @@ git config --global user.name "你的真实姓名"
 git config --global user.email "你的GitHub注册邮箱"
 ```
 
-**备用 SSH 方式（若校园网 https 不稳）：**
-把 `C:\Users\you\.ssh\id_ed25519.pub` 文件内容整行复制到
-GitHub → Settings → SSH and GPG keys → New SSH key，然后 remote 改用
-`git@github.com:你的用户名/sztu-campus-helper.git`。
+**SSH 方式（本机已配置，校园网推荐）**
+`~/.ssh/config` 已把 github.com 指向 `ssh.github.com:443`（绕开被封的 22 端口），
+远程地址已设为 `git@github.com:ALEX-CEBER/sztu-campus-helper.git`。
+把 `C:\Users\you\.ssh\id_ed25519.pub`（= `docs/SSH公钥.txt`）整行复制到
+GitHub → Settings → SSH and GPG keys → New SSH key，之后即可免密推送。
+测试：`ssh -T git@github.com`。
 
 ## 七、换电脑 / 组队时
 
