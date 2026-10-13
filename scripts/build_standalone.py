@@ -28,15 +28,16 @@ def main():
     css = read(WEB / "style.css")
     html = html.replace('<link rel="stylesheet" href="style.css" />', f"<style>\n{css}\n</style>")
 
-    # 2) JS 内联（顺序：数据 → 检索核心 → 页面逻辑）
+    # 2) JS 内联（顺序：数据 → 检索核心 → 看板娘 → 页面逻辑）
     qa_js = read(ROOT / "data" / "qa.js")
     core = read(WEB / "search-core.js")
     # 去掉 Node 导出段，浏览器不需要
     core = re.sub(r"\nif \(typeof module.*?\n\}\n", "\n", core, flags=re.S)
+    mascot = read(WEB / "mascot.js")
     app = read(WEB / "app.js")
-    scripts = f"<script>\n{qa_js}\n{core}\n{app}\n</script>"
+    scripts = f"<script>\n{qa_js}\n{core}\n{mascot}\n{app}\n</script>"
     html = re.sub(
-        r'<script src="\.\./data/qa\.js"></script>\s*<script src="search-core\.js"></script>\s*<script src="app\.js"></script>',
+        r'<script src="\.\./data/qa\.js"></script>\s*<script src="search-core\.js"></script>\s*<script src="mascot\.js"></script>\s*<script src="app\.js"></script>',
         lambda _m: scripts, html)
 
     # 3) 看板娘图片转 base64 内联（保证完全离线可用）

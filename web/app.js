@@ -58,6 +58,7 @@ function emptyHTML() {
 }
 
 function renderHot() {
+  if (window.Mascot) Mascot.say("下面是同学们最常问的问题～", 2400);
   renderList(state.qa.slice(0, 5).map(i => ({ ...i, _score: "—" })),
     '<div class="card mascot-say"><h3>🌸 深小技悄悄说</h3><pre>下面是同学们最常问的问题～也可以直接在上面搜索框提问，支持整句话哦！</pre></div>');
 }
@@ -92,6 +93,9 @@ function doSearch() {
   const query = document.getElementById("q").value.trim();
   if (!query) return renderHot();
   const hits = searchAll(state.qa, query);   // 来自 web/search-core.js
+  if (window.Mascot) {
+    Mascot.say(hits.length ? `找到 ${hits.length} 条，往下看 ↓` : "（；′д｀）ゞ 没查到，换个说法？");
+  }
   renderList(hits, `<div class="card mascot-say"><h3>🔍 关于「${esc(query)}」找到 ${hits.length} 条</h3>
     <pre>${hits.length ? "" : "提示：知识库目前主要覆盖教务/宿舍/图书馆/校园卡/奖助/新生六类。"}</pre></div>`);
 }
