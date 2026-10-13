@@ -53,6 +53,4 @@ python scripts/build_index.py   # 重新生成 data/qa.json，刷新网页即可
 - 课程：AI 氛围编程（Vibe Coding）公选课 · 2026 秋
 - 仓库：https://github.com/ALEX-CEBER/sztu-campus-helper
 - 线上预览（GitHub Pages）：https://alex-ceber.github.io/sztu-campus-helper/
-
-> 开发方式：全程 AI 协作（WorkBuddy 规划与文档 + CodeBuddy 编码），
 > 项目规则见 `AGENTS.md`，版本记录见 `CHANGELOG.md`。
