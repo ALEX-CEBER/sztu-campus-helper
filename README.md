@@ -49,7 +49,8 @@ python scripts/build_index.py   # 重新生成 data/qa.json，刷新网页即可
 
 ## 👤 作者
 - GitHub：[ALEX-CEBER](https://github.com/ALEX-CEBER)
-- 深圳技术大学 · 工程物理学院 · 光电信息科学与工程（大一）
+- 深圳技术大学 · 工程物理学院 · 光电信息科学与工程 董子晔
+- 
 - 课程：AI 氛围编程（Vibe Coding）公选课 · 2026 秋
 - 仓库：https://github.com/ALEX-CEBER/sztu-campus-helper
 - 线上预览（GitHub Pages）：https://alex-ceber.github.io/sztu-campus-helper/
