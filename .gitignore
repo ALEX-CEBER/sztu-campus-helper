@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# 系统与编辑器
+Thumbs.db
+.DS_Store
+.vscode/
+.idea/
+
+# 临时产物（演示视频、zip 等大文件不入库，课程要求 zip<10MB）
+*.mp4
+*.zip
+dist/

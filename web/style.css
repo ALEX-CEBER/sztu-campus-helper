@@ -1,0 +1,72 @@
+/* SZTU 校园办事万事屋 —— 简洁二次元风格 */
+:root {
+  --bg: #f4f8ff;
+  --card: #ffffff;
+  --primary: #2f6fed;
+  --primary-dark: #1d4fb8;
+  --accent: #7ecbff;
+  --text: #22304a;
+  --muted: #6b7a99;
+  --radius: 16px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
+  background: linear-gradient(160deg, var(--bg), #e8f1ff 60%, #fdf3ff);
+  color: var(--text);
+  min-height: 100vh;
+}
+.hero {
+  display: flex; gap: 24px; align-items: center; flex-wrap: wrap;
+  max-width: 960px; margin: 32px auto 16px; padding: 24px 28px;
+  background: var(--card); border-radius: var(--radius);
+  box-shadow: 0 8px 30px rgba(47, 111, 237, .12);
+}
+.mascot {
+  width: 150px; height: 200px; object-fit: cover; object-position: top;
+  border-radius: 14px; border: 3px solid var(--accent);
+}
+h1 { font-size: 26px; color: var(--primary-dark); }
+.slogan { color: var(--muted); margin: 6px 0 14px; font-size: 14px; }
+.search-box { display: flex; gap: 8px; }
+#q {
+  flex: 1; min-width: 260px; padding: 12px 14px; font-size: 15px;
+  border: 2px solid var(--accent); border-radius: 12px; outline: none;
+}
+#q:focus { border-color: var(--primary); }
+#ask {
+  padding: 12px 22px; font-size: 15px; border: none; cursor: pointer;
+  background: var(--primary); color: #fff; border-radius: 12px;
+  transition: background .2s;
+}
+#ask:hover { background: var(--primary-dark); }
+.chips { margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap; }
+.chip {
+  font-size: 12px; padding: 5px 12px; border-radius: 999px; cursor: pointer;
+  background: #eaf2ff; color: var(--primary-dark); border: 1px solid #cfe0ff;
+}
+.chip:hover { background: #dbe9ff; }
+main { max-width: 960px; margin: 0 auto; padding: 0 16px 48px; }
+.card {
+  background: var(--card); border-radius: var(--radius); padding: 18px 20px;
+  margin-bottom: 14px; box-shadow: 0 4px 18px rgba(34, 48, 74, .08);
+  border-left: 5px solid var(--accent);
+}
+.card h3 { font-size: 16px; color: var(--primary-dark); margin-bottom: 8px; }
+.card .cat {
+  display: inline-block; font-size: 11px; background: #eaf2ff; color: var(--primary);
+  border-radius: 999px; padding: 2px 10px; margin-bottom: 8px;
+}
+.card pre {
+  white-space: pre-wrap; font-family: inherit; font-size: 14px;
+  line-height: 1.7; color: var(--text);
+}
+.card .src { margin-top: 8px; font-size: 12px; color: var(--muted); }
+.card .score { float: right; font-size: 11px; color: #b3c2dd; }
+.empty { text-align: center; color: var(--muted); padding: 40px 0; }
+.mascot-say {
+  background: #fff7e6; border-left-color: #ffc53d;
+}
+footer { text-align: center; color: var(--muted); font-size: 12px; padding-bottom: 24px; }
+footer a { color: var(--primary); }
+@media (max-width: 640px) { .mascot { width: 100px; height: 130px; } }
