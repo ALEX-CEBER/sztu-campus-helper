@@ -8,6 +8,20 @@
 
 ---
 
+## v0.1.4 · 2026-10-13 · 对应报告 R1（工程化里程碑）
+**代码首次推送到 GitHub + Pages 就绪**
+
+- ☁️ 仓库上线：https://github.com/ALEX-CEBER/sztu-campus-helper（30 个文件）
+- 🔑 通道：校园网封 22 端口且代理破坏 HTTPS 证书校验 → 改用 **SSH over 443**（`~/.ssh/config`）
+- 🏷️ 版本标签 v0.1.0~v0.2.0 已推送（Releases 可对照每次迭代）
+- 📄 生成 `docs/index.html`（Pages 部署版，2.10MB 单文件），README 补全仓库与在线预览链接
+- 📝 新增 `docs/GitHub提交指南.md`（建仓库 / Pages / zip 打包 / 常见坑）
+
+**验收**：`git ls-remote origin` 可见 main 与 4 个 tag；仓库页面可浏览全部源码。
+**commit**：`83532df`
+
+---
+
 ## v0.1.3 · 2026-10-13 · 对应报告 R1（用户反馈驱动的回滚）
 **撤销 v0.2.0 界面改版与看板娘动效**
 
