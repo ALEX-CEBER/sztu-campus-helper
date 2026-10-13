@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>SZTU《AI氛围编程》学期课题规划 · 校园办事问答（含助手）</title>
+<style>
+  :root{
+    --blue:#2f5fd0; --blue-dark:#1c3c8c; --ink:#22304a; --muted:#5c6b87;
+    --line:#d9e2f5; --soft:#eef3fd; --accent:#e8541e; --ok:#1e8e4e; --warn:#b7791f;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Microsoft YaHei","PingFang SC",sans-serif;color:var(--ink);
+       font-size:12.5px;line-height:1.75}
+  .page{padding:20mm 16mm;page-break-after:always}
+  .page:last-child{page-break-after:auto}
+  h1{font-size:26px;color:var(--blue-dark);margin-bottom:6px}
+  h2{font-size:18px;color:var(--blue-dark);margin:0 0 12px;padding-bottom:6px;border-bottom:3px solid var(--blue)}
+  h3{font-size:14.5px;color:var(--blue);margin:14px 0 6px}
+  p{margin:4px 0}
+  .sub{color:var(--muted);font-size:13px}
+  .cover{display:flex;flex-direction:column;justify-content:center;min-height:250mm;
+         background:linear-gradient(160deg,#f6f9ff,#e8f0ff);padding:24mm}
+  .cover .badge{display:inline-block;background:var(--blue);color:#fff;border-radius:999px;
+         padding:4px 16px;font-size:12px;width:fit-content;margin-bottom:18px}
+  .cover h1{font-size:34px;line-height:1.4}
+  .cover .meta{margin-top:26px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 20px}
+  .cover .meta b{color:var(--blue-dark)}
+  table{width:100%;border-collapse:collapse;margin:8px 0 14px}
+  th{background:var(--blue);color:#fff;font-weight:600;padding:7px 9px;text-align:left;font-size:12px}
+  td{border:1px solid var(--line);padding:7px 9px;vertical-align:top;background:#fff}
+  tr:nth-child(even) td{background:#f7faff}
+  .tag{display:inline-block;border-radius:999px;padding:1px 10px;font-size:11px;font-weight:600}
+  .t-green{background:#e2f5ea;color:var(--ok)} .t-red{background:#fdeaea;color:#c0392b}
+  .t-yellow{background:#fff5e0;color:var(--warn)} .t-blue{background:var(--soft);color:var(--blue)}
+  .box{background:var(--soft);border-left:4px solid var(--blue);border-radius:8px;padding:10px 14px;margin:10px 0}
+  .box.warn{background:#fff8ec;border-left-color:var(--warn)}
+  .box.ok{background:#eefaf2;border-left-color:var(--ok)}
+  ul{margin:4px 0 8px 20px} li{margin:3px 0}
+  code{background:#eef1f7;border-radius:4px;padding:1px 5px;font-family:Consolas,monospace;font-size:11.5px;color:#c0392b}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0}
+  .card{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:#fff}
+  .card h4{font-size:13px;color:var(--blue-dark);margin-bottom:6px}
+  .wk{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:0 0 14px;background:#fff}
+  .wk .head{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+  .wk .num{background:var(--blue);color:#fff;border-radius:10px;padding:2px 12px;font-weight:700;font-size:13px}
+  .wk .title{font-weight:700;font-size:15px;color:var(--ink)}
+  .wk .deliv{background:#f2f7ff;border-radius:8px;padding:8px 12px;margin-top:8px;font-size:12px}
+  .wk .deliv b{color:var(--blue-dark)}
+  .toc{columns:2;column-gap:30px;margin-top:10px}
+  .toc li{break-inside:avoid}
+  .footer-note{margin-top:16px;color:var(--muted);font-size:11px;text-align:center}
+  .flow{display:flex;gap:6px;align-items:stretch;margin:10px 0}
+  .flow .step{flex:1;background:var(--soft);border:1px solid var(--line);border-radius:10px;
+    padding:8px 10px;text-align:center;font-size:11.5px}
+  .flow .arrow{align-self:center;color:var(--blue);font-weight:700}
+</style>
+</head>
+<body>
+
+<!-- ================= 封面 ================= -->
+<div class="page cover">
+  <div class="badge">AI 氛围编程（Vibe Coding）公选课 · 学期课题规划书</div>
+  <h1>课题推荐：<br>校园办事问答（含助手）<br>——「SZTU 校园办事万事屋 · 二次元问答台」</h1>
+  <p class="sub" style="margin-top:14px">从零到程序 · 6 次小报告 + 1 次期末大报告 · 全程 AI 协作路线图</p>
+  <div class="meta">
+    <p><b>自我介绍：</b>我是深圳技术大学工程物理学院光电信息科学与工程专业的大一学生。
+    我对程序软件和网页开发是零基础，但相信"AI 氛围编程"能把想法变成真正能跑的程序。
+    本学期我希望通过「校园办事万事屋」项目，学会用 Git 管理代码、用 AI 助手完成开发闭环，
+    并为同学们做一个真正有用的校园问答工具——它还有一个二次元看板娘"深小技"，
+    让查办事流程这件事变得轻松一点。</p>
+    <p style="margin-top:8px"><b>组队：</b>至多 2 人（登记表按课程要求自行填写）&nbsp;&nbsp;
+    <b>群昵称：</b>姓名-学号&nbsp;&nbsp;<b>日期：</b>2026 年 10 月 13 日</p>
+    <p style="margin-top:8px"><b>本机已就绪：</b>Git v2.55（已配置）· 本地仓库已建立并完成首次提交 ·
+    项目骨架与可运行原型已就位（见附页清单）</p>
+  </div>
+</div>
+
+<!-- ================= 目录 + 结论 ================= -->
+<div class="page">
+  <h2>〇、目录与本规划书结论</h2>
+  <ol class="toc">
+    <li>课题筛选：五个候选怎么选、为什么</li>
+    <li>推荐课题的项目构想</li>
+    <li>零基础 AI 工作流（WorkBuddy / CodeBuddy / Git / GitHub）</li>
+    <li>学期节奏总览与 6 次小报告逐次规划</li>
+    <li>期末大报告 + 演示视频 + 源码包要求</li>
+    <li>风险清单与对策</li>
+    <li>附页：本机已交付清单与下次行动</li>
+  </ol>
+
+  <h3>核心结论（30 秒版）</h3>
+  <div class="box ok">
+    <p><b>首选课题：校园办事问答（含助手）</b>——改造为「SZTU 校园办事万事屋」，主打
+    <b>离线优先检索 + 校内模型兜底 + 二次元看板娘</b>。</p>
+    <p>决定性理由：<b>校内 AI 模型"仅上课当天晚上开放、并发有限"</b>——这条约束直接淘汰
+    依赖大量生成算力的 AIGC 课题（小说影视化流水线、校园电台）；而问答类课题完全可以
+    "数据 + 检索"离线运行，模型只是锦上添花。数据自己可控、每两周一个可演示版本、
+    6 次报告天然按数据→前端→检索→LLM→测试切分，非常适合 0 基础 + AI 协作。</p>
+  </div>
+  <p class="sub">备选：若你对"答疑"更感兴趣，「课程答疑知识库」与本方案同构，只需把数据源换成课程资料——本规划书 90% 内容可复用。</p>
+
+  <h2>一、课题筛选：五个候选对比</h2>
+  <table>
+    <tr><th style="width:20%">课题</th><th>实现难度</th><th>主要风险</th><th>二次元容纳度</th><th style="width:9%">结论</th></tr>
+    <tr>
+      <td><b>校园办事问答（含助手）</b></td>
+      <td><span class="tag t-green">低</span> 数据自己写、纯前端可跑、检索算法 100 行以内</td>
+      <td>需核实学校真实流程（有解：数据标注"待核实"迭代补充）</td>
+      <td>看板娘助手天然适配（立绘+拟人文案+表情气泡）</td>
+      <td><span class="tag t-green">★ 首选</span></td>
+    </tr>
+    <tr>
+      <td>课程答疑知识库（含助手）</td>
+      <td><span class="tag t-yellow">中低</span> 与首选同构，但需真实课程资料且答案正确性要人工把关</td>
+      <td>答疑答错"显眼"；高数等科目答案构建成本高</td>
+      <td>同上</td>
+      <td><span class="tag t-yellow">备选</span></td>
+    </tr>
+    <tr>
+      <td>AI 校园全能助手（AIGC）</td>
+      <td><span class="tag t-red">高</span> "全能"=范围失控，单人/双人做不完</td>
+      <td>功能多而浅，期末演示每项都拿不出手</td>
+      <td>高</td>
+      <td><span class="tag t-red">不推荐</span></td>
+    </tr>
+    <tr>
+      <td>小说影视化流水线（AIGC）</td>
+      <td><span class="tag t-red">高</span> 文生图/文生视频调用多、排队久</td>
+      <td>校内模型并发有限+仅当晚开放，生成不可控；视频分镜一致性难</td>
+      <td>高</td>
+      <td><span class="tag t-red">不推荐</span></td>
+    </tr>
+    <tr>
+      <td>AI 校园电台（AIGC）</td>
+      <td><span class="tag t-yellow">中</span> TTS+内容生成+音频播放器</td>
+      <td>同受模型时段限制；音频资产管理繁琐；演示依赖播放效果</td>
+      <td>高（虚拟主播）</td>
+      <td><span class="tag t-yellow">不建议</span></td>
+    </tr>
+  </table>
+  <div class="box">
+    <b>筛选原则回顾：</b>① 课程硬约束优先（模型仅当晚开放→少依赖在线生成）；
+    ② 0 基础友好（纯静态网页 &gt; 需要后端/算力）；③ 报告好写（每两周必有"能跑的新东西"可演示、可截图、可自证）；
+    ④ 关于学校且能装二次元元素；⑤ 源码 zip ≤ 10MB（纯文本项目轻松满足）。
+  </div>
+</div>
+
+<!-- ================= 项目构想 ================= -->
+<div class="page">
+  <h2>二、推荐课题构想：「SZTU 校园办事万事屋 · 二次元问答台」</h2>
+
+  <h3>2.1 一句话定位</h3>
+  <p>把散落在学校官网、教务系统、宿管通知里的办事流程，整理成"提问 → 秒回答案"的网页问答台；
+  检索不到时再交给校内大模型兜底；全程由二次元看板娘"深小技"陪伴。</p>
+
+  <h3>2.2 架构（0 基础版，纯静态、可部署 GitHub Pages）</h3>
+  <div class="flow">
+    <div class="step"><b>知识库</b><br>data/knowledge/*.md<br>（Markdown 人人可写）</div>
+    <div class="arrow">→</div>
+    <div class="step"><b>构建脚本</b><br>build_index.py<br>（md → qa.json）</div>
+    <div class="arrow">→</div>
+    <div class="step"><b>网页</b><br>web/ 原生 HTML/CSS/JS<br>关键词打分检索</div>
+    <div class="arrow">→</div>
+    <div class="step"><b>LLM 兜底</b><br>校内模型接口<br>（仅检索零命中时调用）</div>
+  </div>
+  <p class="sub">设计要点：<b>离线优先</b>——不依赖大模型也能用，规避"接口仅上课当晚开放"的硬约束；
+  数据与程序分离——同学/队友改 Markdown 就能加答案，不用碰代码。</p>
+
+  <h3>2.3 二次元元素（对应课题要求）</h3>
+  <ul>
+    <li><b>看板娘"深小技"</b>：AI 生成的校园助手立绘（已生成 v1，位于 assets/mascot.png），常驻页面左上角；</li>
+    <li><b>拟人化文案</b>：空结果不冷冰冰，而是"深小技"道歉+引导换说法/提交新问题；</li>
+    <li><b>表情气泡</b>：命中多时开心、检索不到时沮丧颜文字（后期可用 CSS 切换立绘表情或加 Live2D 进阶）；</li>
+    <li>加分想象：节日皮肤（开学季/考试周换装）、"深小技"语录随机彩蛋。</li>
+  </ul>
+
+  <h3>2.4 知识库数据规范（诚实工程，防"编造学校信息"翻车）</h3>
+  <ul>
+    <li>每条 = 问题 + 分类 + 关键词 + 答案 + 来源；来源必须可指认（官网/通知/学生手册）；</li>
+    <li>不确定的细节一律标 <code>[待核实]</code>，页面对应显示黄色角标——这本身就是一个可以写进报告的"数据质量机制"；</li>
+    <li>数据收集方法：翻学校官网/迎新手册逐条整理，或用 WorkBuddy 联网检索后人工核对（AI 起草、人负责核实）。</li>
+  </ul>
+
+  <h3>2.5 功能路线图（按周验收）</h3>
+  <table>
+    <tr><th style="width:16%">阶段</th><th>功能</th><th style="width:22%">可演示卖点</th></tr>
+    <tr><td>v0.1（已就位）</td><td>31 条知识库 + 关键词打分检索 + 看板娘页面</td><td>当场提问当场答</td></tr>
+    <tr><td>v0.2 数据扩充</td><td>≥60 条、分类筛选、热门问题榜</td><td>覆盖 6 大办事类目</td></tr>
+    <tr><td>v0.3 体验</td><td>移动端适配、深色模式、无结果引导</td><td>手机上演示</td></tr>
+    <tr><td>v0.4 智能</td><td>同义词表、拼音/错别字容错、LLM 兜底</td><td>"先修课没过能选后修课吗"也能命中</td></tr>
+    <tr><td>v1.0 交付</td><td>GitHub Pages 上线、反馈收集、测试报告</td><td>扫码即用</td></tr>
+  </table>
+</div>
+
+<!-- ================= AI 工作流 ================= -->
+<div class="page">
+  <h2>三、零基础 AI 工作流：让 WorkBuddy / CodeBuddy 替你写代码</h2>
+
+  <h3>3.1 工具分工（记住这张表就够）</h3>
+  <table>
+    <tr><th style="width:18%">工具</th><th>什么时候用</th><th>怎么用（对它说的话）</th></tr>
+    <tr><td><b>WorkBuddy</b></td><td>规划、查资料、写文档、生成立绘、整理数据</td>
+      <td>"帮我调研深圳技术大学补办校园卡流程并整理成知识库 Markdown 格式"</td></tr>
+    <tr><td><b>CodeBuddy</b></td><td>写代码、改 bug、跑命令、git 提交</td>
+      <td>"读取 AGENTS.md，给问答页加一个深色模式按钮"</td></tr>
+    <tr><td><b>Git + GitHub</b></td><td>每次改完代码存档；课程交源码</td>
+      <td>见《docs/Git使用说明.md》，AI 会按它操作</td></tr>
+    <tr><td>VS Code（已装）</td><td>看代码/改文案时人工确认</td><td>配合 CodeBuddy 插件使用</td></tr>
+    <tr><td>Edge/浏览器</td><td>随时 F12 预览网页、录演示视频</td><td>Win+G 可录屏</td></tr>
+  </table>
+
+  <h3>3.2 每周开发循环（固定节奏，照做即可）</h3>
+  <div class="flow">
+    <div class="step"><b>① 定目标</b><br>和 AI 确认本周<br>要交付什么</div>
+    <div class="arrow">→</div>
+    <div class="step"><b>② 让 AI 写</b><br>CodeBuddy 小步实现<br>每次一个功能</div>
+    <div class="arrow">→</div>
+    <div class="step"><b>③ 亲自验收</b><br>浏览器跑一遍<br>截图当证据</div>
+    <div class="arrow">→</div>
+    <div class="step"><b>④ git 存档</b><br>add→commit→push<br>（绿点+1）</div>
+    <div class="arrow">→</div>
+    <div class="step"><b>⑤ 写报告</b><br>WorkBuddy 按模板<br>起草→你改定</div>
+  </div>
+
+  <h3>3.3 提问模板（0 基础最需要的三个句式）</h3>
+  <ul>
+    <li><b>开工：</b>"请先读项目根目录的 AGENTS.md 和 README.md，再开始，不要引入框架。"</li>
+    <li><b>报错：</b>"运行 xx 命令报错，报错信息如下：【粘贴】。请先解释原因，再给出最小修改。"</li>
+    <li><b>防失控：</b>"这次只做这一件事，做完停下等我确认，不要顺手改别的文件。"</li>
+  </ul>
+  <div class="box warn"><b>AI 使用记录（报告必需）：</b>课程报告要求写"我的提问 / AI 的处理"。
+  建议每次让 AI 干活时随手截图，或让 WorkBuddy 把当次会话要点总结成 3-5 行存入
+  <code>reports/ai-log-第N周.md</code>——期末大报告的"AI 协作复盘"直接有素材。</div>
+
+  <h3>3.4 GitHub 账号开通（唯一需要你亲手做的事，约 5 分钟）</h3>
+  <ol style="margin-left:20px">
+    <li>打开 github.com → Sign up → 用你的常用邮箱注册（记牢用户名）；</li>
+    <li>把「用户名 + 注册邮箱」告诉我，我帮你改 Git 署名并建立远程关联；</li>
+    <li>首次 <code>git push</code> 时弹出的浏览器授权窗口点"Sign in with your browser"即可，之后免登录。</li>
+  </ol>
+</div>
+
+<!-- ================= 6次报告规划 ================= -->
+<div class="page">
+  <h2>四、学期节奏总览与 6 次小报告逐次规划</h2>
+  <p class="sub">按参考报告模板组织：<b>基本信息 → 本周目标 → 完成内容与验收（附自证截图）→ 风险与收敛 → AI 使用记录 → 下周计划</b>。
+  每次报告 = 一份可运行的增量 + 证据截图。你已错过 1 次，以下按 6 次排布，第 1 次报告同时承担"补立项"职责。</p>
+  <table>
+    <tr><th style="width:12%">报告</th><th style="width:26%">主题</th><th>该周开发内容</th><th style="width:26%">报告里最值钱的素材</th></tr>
+    <tr><td><b>R1</b></td><td>选题与首次运行</td><td>定题、环境搭建（Git/GitHub/原型跑通）<b>【已完成大半】</b></td><td>课题对比表、架构图、首次 commit 截图</td></tr>
+    <tr><td><b>R2</b></td><td>需求调研与数据工程</td><td>问卷/访谈 10 人 + 知识库扩到 60 条</td><td>调研数据图表、数据规范、[待核实] 机制</td></tr>
+    <tr><td><b>R3</b></td><td>前端体验迭代</td><td>分类筛选/移动端/深色模式/无结果引导</td><td>改版前后对比截图、同学试用反馈</td></tr>
+    <tr><td><b>R4</b></td><td>检索算法优化</td><td>同义词表、拼音容错、相关度调参</td><td>检索命中率实验（20 组问题命中率前→后）</td></tr>
+    <tr><td><b>R5</b></td><td>接入校内 AI 模型</td><td>LLM 兜底 + Prompt 工程 + 降级策略</td><td>上课当晚实测截图、Prompt 迭代记录</td></tr>
+    <tr><td><b>R6</b></td><td>测试、部署与发布</td><td>GitHub Pages 上线、测试用例、反馈表</td><td>上线链接+二维码、bug 清单修复记录</td></tr>
+  </table>
+
+  <h3>R1 详细骨架（最近一次要交的，直接照填）</h3>
+  <div class="wk">
+    <div class="head"><span class="num">R1</span><span class="title">课程报告（第 1-2 周）：选题范围、验收标准与首次运行</span></div>
+    <p><b>基本信息：</b>群昵称 姓名-学号；GitHub 仓库链接（注册后填）；本地运行截图。</p>
+    <p><b>本周目标：</b>① 完成 5 课题对比并定题；② 搭好 Git+GitHub 环境；③ 让"能提问、能回答"的最小原型在本地跑起来。</p>
+    <p><b>完成与验收（自证）：</b>① 对比表（本规划书 §1）；② <code>git log</code> 首次提交截图；③ 浏览器提问"校园卡丢了怎么办"命中答案截图；④ 看板娘立绘展示。</p>
+    <p><b>风险与收敛：</b>"全能"范围失控 → 收敛为办事问答；数据不准 → 引入[待核实]标注机制。</p>
+    <p><b>AI 使用记录：</b>WorkBuddy 完成选题分析/环境配置/原型搭建；CodeBuddy 后续接管开发。</p>
+    <p><b>下周计划：</b>问卷调研 + 知识库扩到 60 条（对应 R2）。</p>
+    <div class="deliv"><b>交付：</b>reports/week01.md（按此骨架写，md 格式提交）</div>
+  </div>
+
+  <h3>R2–R6 每次同样写法，只换主题与素材</h3>
+  <ul>
+    <li><b>R2 加分项：</b>用问卷星收集"新生最想知道的 10 件事"，把统计图贴进报告——体现真实需求；</li>
+    <li><b>R4 加分项：</b>做一个小实验表：同一批问题旧版/新版命中率对比（让 CodeBuddy 写个测试脚本自动跑）；</li>
+    <li><b>R5 关键动作：</b>只能在上课当晚做接口联调——提前把 Prompt 和降级逻辑在本地 mock 好，当晚只填真实接口地址，半小时收工；</li>
+    <li><b>R6 收尾：</b>上线后把链接发给 20 个同学用一次，收集 3 条真实反馈写进报告。</li>
+  </ul>
+</div>
+
+<!-- ================= 大报告 + 风险 ================= -->
+<div class="page">
+  <h2>五、期末大报告 + 演示视频 + 源码包（交付要求对照）</h2>
+  <table>
+    <tr><th style="width:22%">交付物</th><th>课程要求</th><th>准备策略</th></tr>
+    <tr><td>期末大报告</td><td>总结性大报告（md）</td><td>结构：项目概述→需求与调研→架构与实现→测试与数据→AI 协作复盘→反思与展望；素材全部来自 6 次小报告，提前归档就只需 1 天组装</td></tr>
+    <tr><td>讲述录屏</td><td>720p、mp4、压好尺寸</td><td>用 Win+G / OBS 录屏：3-5 分钟脚本=30s 看板娘开场→2min 功能演示→1min 架构讲解→30s 反思；用剪映/格式工厂压到 &lt;100MB</td></tr>
+    <tr><td>源码 zip</td><td>只留 git 仓库内容，≤10MB</td><td>纯文本项目天然满足；mp4/zip 已在 .gitignore；打包命令 <code>git archive -o 交付.zip HEAD</code></td></tr>
+    <tr><td>7+1 报告</td><td>按 deadline 交 acm 作业系统，注意互评 deadline</td><td>每周日固定 1 小时"报告+push"例行动作</td></tr>
+  </table>
+
+  <h2>六、风险清单与对策</h2>
+  <table>
+    <tr><th style="width:30%">风险</th><th>对策</th></tr>
+    <tr><td>错过小报告（已发生 1 次）</td><td>R1 立即补上并主动说明；设周日 20:00 手机提醒"报告+push"（可在 WorkBuddy 里建每周自动化提醒）</td></tr>
+    <tr><td>校内模型当晚用不了/排队</td><td>架构已"离线优先"，LLM 只做增强；演示可切 mock 模式</td></tr>
+    <tr><td>答案不准确被同学指出</td><td>[待核实]机制 + 反馈入口 + 每周数据例会式更新；把纠错做成功能而非事故</td></tr>
+    <tr><td>AI 生成代码看不懂</td><td>每周让 CodeBuddy 出"代码讲解"，挑 1 个文件让 AI 逐行解释——也是报告素材</td></tr>
+    <tr><td>组队分工扯皮</td><td>一人管数据（md）一人管前端，git 提交记录天然分工证明</td></tr>
+    <tr><td>GitHub 访问不稳</td><td>push 失败重试/换 SSH 方式；本地 commit 后代码永不丢</td></tr>
+  </table>
+
+  <h2>附页：本机已交付清单 ✅</h2>
+  <div class="box ok">
+    <ul>
+      <li><b>Git v2.55</b> 已安装并完成全局配置（署名为占位，待你提供 GitHub 邮箱后一键改）；SSH 密钥已生成：<code>C:\Users\you\.ssh\id_ed25519.pub</code></li>
+      <li><b>本地仓库</b>：<code>C:\Users\you\WorkBuddy\2026-10-13-12-17-14\sztu-campus-helper</code>，已完成首次提交（17 个文件）</li>
+      <li><b>可运行原型</b>：31 条知识库 + 检索问答页 + 看板娘立绘（双击 start.bat 即可预览，全部资源 HTTP 200 验证通过）</li>
+      <li><b>AI 规则文件</b>：AGENTS.md（CodeBuddy/WorkBuddy 每次会话自动遵守的项目约束）</li>
+      <li><b>Git 小白教程</b>：docs/Git使用说明.md（急救包 + AI 调用约定，随时丢给 AI）</li>
+      <li><b>你的下一步（按序）：</b>① 注册 GitHub → 把用户名+邮箱给我改署名建远程；② 双击 start.bat 玩一遍原型；③ 把 R1 骨架填成第一份报告</li>
+    </ul>
+  </div>
+  <p class="footer-note">SZTU《AI 氛围编程》学期课题规划 · 由 WorkBuddy 协助生成 · 数据类信息以学校官方通知为准</p>
+</div>
+
+</body>
+</html>
