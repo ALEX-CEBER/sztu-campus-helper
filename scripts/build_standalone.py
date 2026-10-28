@@ -33,21 +33,24 @@ def main():
     css = read(WEB / "style.css")
     html = html.replace('<link rel="stylesheet" href="style.css" />', f"<style>\n{css}\n</style>")
 
-    # 2) JS 内联（顺序：数据 → 检索核心 → 看板娘 → 页面逻辑）
-    qa_js = read(ROOT / "data" / "qa.js")
+    # 2) JS 内联：逐个替换 script 标签，保持原有执行顺序
     core = read(WEB / "search-core.js")
-    # 去掉 Node 导出段，浏览器不需要
-    core = re.sub(r"\nif \(typeof module.*?\n\}\n", "\n", core, flags=re.S)
-    app = read(WEB / "app.js")
-    scripts = f"<script>\n{qa_js}\n{core}\n{app}\n</script>"
-    # 看板娘脚本是可选增强：存在才内联，方便随时回滚到"静态看板娘"版本
-    mp = WEB / "mascot.js"
-    if mp.exists():
-        html = re.sub(r'<script src="mascot\.js"></script>',
-                      lambda _m: f"<script>\n{read(mp)}\n</script>", html)
-    html = re.sub(
-        r'<script src="\.\./data/qa\.js"></script>\s*<script src="search-core\.js"></script>\s*<script src="app\.js"></script>',
-        lambda _m: scripts, html)
+    core = re.sub(r"\nif \(typeof module.*?\n\}\n", "\n", core, flags=re.S)  # 去掉 Node 导出段
+
+    assets = {
+        "../data/qa.js": ROOT / "data" / "qa.js",
+        "../data/news.js": ROOT / "data" / "news.js",   # 校园资讯数据（可选）
+        "search-core.js": WEB / "search-core.js",
+        "app.js": WEB / "app.js",
+        "news.js": WEB / "news.js",                     # 校园资讯页面逻辑（可选）
+        "mascot.js": WEB / "mascot.js",                 # 看板娘动效（可选，回滚版无此文件）
+    }
+    for src, path in assets.items():
+        if not path.exists():
+            html = html.replace(f'<script src="{src}"></script>', "")
+            continue
+        code = core if src == "search-core.js" else read(path)
+        html = html.replace(f'<script src="{src}"></script>', f"<script>\n{code}\n</script>")
 
     # 3) 看板娘图片转 base64 内联（保证完全离线可用）
     mascot = ROOT / "assets" / "mascot.png"

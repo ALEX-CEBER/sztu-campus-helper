@@ -3,34 +3,46 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SZTU 校园办事万事屋 · 二次元问答台</title>
+  <title>SZTU 校园办事万事屋 · 问答与资讯</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="hero">
-    <img class="mascot" src="../assets/mascot.png" alt="看板娘" />
-    <div>
+    <img class="mascot" src="../assets/mascot.png" alt="看板娘 深小技" />
+    <div class="hero-body">
       <h1>校园办事万事屋</h1>
-      <p class="slogan">你好呀！我是深小技 · 校园办事问答助手 (๑•̀ㅂ•́)و✧</p>
-      <div class="search-box">
-        <input id="q" type="text" placeholder="试试：校园卡丢了怎么办 / 图书馆几点开门" />
-        <button id="ask">提问</button>
+      <p class="slogan">深圳技术大学 · 办事问答与校园资讯，一站搞定～</p>
+
+      <nav class="tabs" role="tablist">
+        <button class="tab active" data-view="qa" role="tab">办事问答</button>
+        <button class="tab" data-view="news" role="tab">校园资讯</button>
+      </nav>
+
+      <div class="view" id="view-qa">
+        <div class="search-box">
+          <input id="q" type="text" placeholder="试试：校园卡丢了怎么办 / 图书馆几点开门" />
+          <button id="ask">提问</button>
+        </div>
+        <div class="chips" id="chips"></div>
       </div>
-      <div class="chips" id="chips"></div>
     </div>
   </header>
 
   <main>
     <section id="results" aria-live="polite"></section>
+    <section id="newsPanel" hidden></section>
   </main>
 
   <footer>
-    <p>数据为通用流程整理，标注 [待核实] 的条目以学校官方通知为准 ·
-       <a href="https://github.com/" target="_blank" rel="noopener">课程仓库</a></p>
+    <p>办事问答为通用流程整理，标注 [待核实] 的条目以学校官方通知为准 ·
+       资讯来自 <a href="https://nbw.sztu.edu.cn/" target="_blank" rel="noopener">深圳技术大学校园通</a> ·
+       <a href="https://github.com/ALEX-CEBER/sztu-campus-helper" target="_blank" rel="noopener">课程仓库</a></p>
   </footer>
 
   <script src="../data/qa.js"></script>
+  <script src="../data/news.js"></script>
   <script src="search-core.js"></script>
   <script src="app.js"></script>
+  <script src="news.js"></script>
 </body>
 </html>

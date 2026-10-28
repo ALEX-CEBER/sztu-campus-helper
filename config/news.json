@@ -1,0 +1,25 @@
+{
+  "sources": [
+    {
+      "id": "notice",
+      "name": "校园通知",
+      "url": "https://nbw.sztu.edu.cn/",
+      "enabled": true
+    },
+    {
+      "id": "news",
+      "name": "校园新闻",
+      "url": "https://nbw.sztu.edu.cn/xyxw.htm",
+      "enabled": true
+    }
+  ],
+  "max_items": 30,
+  "timeout_seconds": 15,
+  "retries": 3,
+  "retry_backoff_seconds": 2,
+  "request_delay_seconds": 0.8,
+  "fetch_detail_summary": true,
+  "detail_limit": 12,
+  "summary_length": 110,
+  "user_agent": "SZTU-Campus-Helper/0.3 (course project; +https://github.com/ALEX-CEBER/sztu-campus-helper)"
+}
