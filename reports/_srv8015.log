@@ -1,0 +1,24 @@
+SZTU 校园办事万事屋 v0.4.0
+  页面：http://localhost:8015/
+  接口：http://localhost:8015/api/news
+  已有缓存：29 条，2026-11-09T22:52:25+08:00
+· 抓取「校园通知」：http://127.0.0.1:9/
+  ! 失败：timed out
+! 本次刷新失败：校园通知: timed out
+[23:00:12] "GET /api/news?max=2&force=1 HTTP/1.1" 200 -
+[23:00:13] "GET /web/index.html HTTP/1.1" 200 -
+[23:00:14] "GET /web/style.css HTTP/1.1" 200 -
+[23:00:14] "GET /data/news.js HTTP/1.1" 200 -
+[23:00:14] "GET /web/search-core.js HTTP/1.1" 200 -
+[23:00:14] "GET /web/app.js HTTP/1.1" 200 -
+[23:00:14] "GET /data/qa.js HTTP/1.1" 200 -
+[23:00:14] "GET /web/news.js HTTP/1.1" 200 -
+[23:00:14] "GET /assets/mascot.png HTTP/1.1" 200 -
+[23:00:14] "GET /api/news?max=30&force=0 HTTP/1.1" 200 -
+· 抓取「校园通知」：http://127.0.0.1:9/
+[23:00:14] "GET /favicon.ico HTTP/1.1" 404 -
+[23:00:14] "GET /api/news?max=30&force=0 HTTP/1.1" 200 -
+[23:00:14] "GET /api/news?max=30&force=0 HTTP/1.1" 200 -
+[23:00:14] "GET /api/news?max=30&force=0 HTTP/1.1" 200 -
+  ! 失败：timed out
+! 本次刷新失败：校园通知: timed out

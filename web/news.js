@@ -12,6 +12,7 @@
     loading: true,
     live: false,       // 是否来自接口
     error: "",         // 接口错误提示
+    errorCode: "",     // 接口错误码（HTTP_404 表示静态托管没有这个接口）
     warning: null,     // 接口返回的兜底警告
     refreshing: false, // 服务端正在后台刷新
     lastFetch: 0,
@@ -85,12 +86,14 @@
       };
       state.live = true;
       state.error = "";
+      state.errorCode = "";
       state.warning = body.warning || null;
       state.refreshing = !!body.refreshing;
       state.lastFetch = Date.now();
       state.pollLeft = 3;
     } catch (err) {
       state.error = err.message || "请求失败";
+      state.errorCode = err.code || "";
       state.refreshing = false;
       if (!state.data) {
         const snap = snapshot();
@@ -127,6 +130,13 @@
   function bannerHTML() {
     if (state.error) {
       const snapTime = state.data ? fmtTime(state.data.updated_at) : "";
+      // 静态打开（双击文件 / 静态托管）没有本地接口，这是预期行为，用中性提示即可
+      const staticHost = location.protocol === "file:" || state.errorCode.startsWith("HTTP_4");
+      if (staticHost && state.data) {
+        return `<div class="news-banner info">
+          当前是 ${esc(snapTime)} 的离线快照：静态版没有本地接口。用 start.bat 启动服务后，这里的资讯会随页面刷新。
+        </div>`;
+      }
       return `<div class="news-banner error">
         接口没连上：${esc(state.error)}。
         ${state.live ? "页面保留上一次拿到的数据。" : `当前显示 ${esc(snapTime)} 的离线快照，用 start.bat 启动本地服务即可实时更新。`}
@@ -170,9 +180,11 @@
 
     const cats = ["全部", ...new Set(d.items.map(i => i.category).filter(Boolean))];
     const items = state.cat === "全部" ? d.items : d.items.filter(i => i.category === state.cat);
-    const badge = state.live
-      ? `<span class="badge-live"><i class="dot"></i>实时</span>`
-      : `<span class="badge-live off"><i class="dot"></i>离线快照</span>`;
+    const badge = !state.live
+      ? `<span class="badge-live off"><i class="dot"></i>离线快照</span>`
+      : (d.stale
+          ? `<span class="badge-live off"><i class="dot"></i>缓存兜底</span>`
+          : `<span class="badge-live"><i class="dot"></i>实时</span>`);
 
     panel.innerHTML = `
       <div class="news-head">

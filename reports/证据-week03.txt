@@ -88,3 +88,15 @@ data/news.js 前 60 字： window.NEWS_DATA = {"updated_at": "2026-11-09T22:52:2
 }
 首条摘要长度： 111 ｜分类： 教务
 结论：updated_at 与重启前一致、摘要仍在 → 数据来自磁盘，不是内存
+
+===== 9. 本次提交 =====
+cd315cd (HEAD -> main, origin/main, origin/HEAD) 构建：用最终前端重建单机版与 Pages 版
+a8c4ca4 合并：远端定时同步的资讯数据（数据以本地最新一次抓取为准）
+5fd92d6 (tag: v0.4.0) 新增：校园资讯实时接口（server.py + /api/news）与界面视觉升级；抓取逻辑拆到 news_source，新增字段校验与失败兜底
+35f13bf 文档：新增校园资讯接口约定 docs/api.md（请求/成功/失败/字段规则）
+
+接口约定基线提交：35f13bf（docs/api.md）
+实现提交：5fd92d6（server.py + /api/news + 前端 + 界面）
+核对：git diff 35f13bf -- docs/api.md 输出为空（约定未被实现改动）
+
+远端自动同步提交次数：49（最近一次 11-09 12:45）
