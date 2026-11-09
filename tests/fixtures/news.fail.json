@@ -1,0 +1,19 @@
+{
+  "sources": [
+    {
+      "id": "notice",
+      "name": "校园通知",
+      "url": "http://127.0.0.1:9/",
+      "enabled": true
+    }
+  ],
+  "max_items": 5,
+  "timeout_seconds": 2,
+  "retries": 1,
+  "retry_backoff_seconds": 1,
+  "request_delay_seconds": 0,
+  "fetch_detail_summary": false,
+  "detail_limit": 1,
+  "summary_length": 60,
+  "user_agent": "SZTU-Campus-Helper/0.4 (failure-test)"
+}

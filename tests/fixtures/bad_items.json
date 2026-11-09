@@ -1,0 +1,37 @@
+[
+  {
+    "title": "关于校园网维护的通知",
+    "url": "https://nbw.sztu.edu.cn/info/1032/1643.htm",
+    "date": "2026-11-08",
+    "category": "信息化",
+    "summary": "示例：一条合规数据，用来对照下面几条为什么被拒。"
+  },
+  {
+    "title": "   ",
+    "url": "https://nbw.sztu.edu.cn/info/1018/52742.htm",
+    "date": "2026-11-09",
+    "category": "教务",
+    "summary": "标题是空白字符，应当被拒绝。"
+  },
+  {
+    "title": "某培训机构的推广文章",
+    "url": "https://example.com/ads/123.html",
+    "date": "2026-11-09",
+    "category": "教务",
+    "summary": "链接指向校外域名，应当被拒绝。"
+  },
+  {
+    "title": "日期写错的测试条目",
+    "url": "https://nbw.sztu.edu.cn/info/1018/52741.htm",
+    "date": "2026-13-45",
+    "category": "教务",
+    "summary": "13 月 45 日不存在，应当被拒绝。"
+  },
+  {
+    "title": "分类不在白名单的测试条目",
+    "url": "https://nbw.sztu.edu.cn/info/1018/52740.htm",
+    "date": "2026-11-07",
+    "category": "广告",
+    "summary": "category 不在白名单，应当被拒绝。"
+  }
+]

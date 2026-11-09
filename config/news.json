@@ -17,9 +17,9 @@
   "timeout_seconds": 15,
   "retries": 3,
   "retry_backoff_seconds": 2,
-  "request_delay_seconds": 0.8,
+  "request_delay_seconds": 0.5,
   "fetch_detail_summary": true,
-  "detail_limit": 12,
+  "detail_limit": 8,
   "summary_length": 110,
   "user_agent": "SZTU-Campus-Helper/0.3 (course project; +https://github.com/ALEX-CEBER/sztu-campus-helper)"
 }

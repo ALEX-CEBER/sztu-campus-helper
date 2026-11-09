@@ -1,0 +1,90 @@
+===== 0. 本次报告时间 =====
+2026-11-09 22:52:12
+
+===== 1. 提交与版本 =====
+35f13bf (HEAD -> main) 文档：新增校园资讯接口约定 docs/api.md（请求/成功/失败/字段规则）
+8e4dc0f (origin/main, origin/HEAD) 部署：Pages 版更新为含校园资讯模块
+62d9d29 文档：补充README作者信息（合并网页端编辑）
+fc35335 Merge remote-tracking branch 'origin/main'
+ab5e09d (tag: v0.3.0) 新增：校园资讯模块（抓取校园通+定时同步+缓存兜底+移动端适配）
+
+v0.1.2
+v0.2.0
+v0.3.0
+
+===== 2. 服务健康检查 =====
+{"ok": true, "version": "v0.4.0", "uptime_seconds": 280, "cache_age_seconds": 144, "refreshing": false}
+
+===== 3. 接口成功：GET /api/news?max=3 =====
+{
+  "ok": true,
+  "version": "v0.4.0",
+  "updated_at": "2026-11-09T22:49:48+08:00",
+  "count": 3,
+  "stale": false,
+  "refreshing": true,
+  "cache_age_seconds": 144,
+  "warning": null
+}
+首条: {"title": "关于征集第六批教育评价改革典型案例的通知", "url": "https://nbw.sztu.edu.cn/info/1018/52742.htm", "date": "2026-11-09", "category": "教务", "column": "1018", "source": "校园通知", "summary": "各单位： 根据《 广东省教育厅办公室关于征集第六批教育评价改革典型案例的通知 》文件精神
+HTTP: 200 耗时:0.002173s
+
+
+===== 4. 接口失败（无缓存 + 源站不可达）：GET :8013/api/news =====
+启动：python server.py --port 8013 --config tests/fixtures/news.fail.json --no-cache
+HTTP/1.0 502 Bad Gateway
+Server: SZTUHelper/v0.4.0 Python/3.13.14
+Date: Mon, 09 Nov 2026 14:52:40 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 169
+Cache-Control: no-store
+Access-Control-Allow-Origin: *
+
+{"ok": false, "error": {"code": "CRAWL_FAILED", "message": "校园通暂时连不上，也没找到本地缓存，请稍后再试", "detail": "校园通知: timed out"}}
+----- 该服务日志 -----
+  ! 失败：timed out
+! 本次刷新失败：校园通知: timed out
+[22:52:40] "GET /api/news?max=5 HTTP/1.1" 502 -
+
+===== 5. 接口失败但保留缓存（点刷新失败）：GET :8014/api/news?force=1 =====
+{
+  "ok": true,
+  "updated_at": "2026-11-09T22:52:25+08:00",
+  "count": 2,
+  "stale": true,
+  "warning": {
+    "code": "CRAWL_FAILED",
+    "message": "校园通暂时连不上，当前显示约 1 分钟前的缓存"
+  }
+}
+
+===== 6. 违规数据被拒绝 =====
+$ python scripts/validate_news.py tests/fixtures/bad_items.json
+    ✓ 第 1 条通过：关于校园网维护的通知
+    × 第 2 条被拒绝：标题为空  ←    
+    × 第 3 条被拒绝：链接域名不在白名单：example.com  ← 某培训机构的推广文章
+    × 第 4 条被拒绝：日期不存在：2026-13-45  ← 日期写错的测试条目
+    × 第 5 条被拒绝：分类不在白名单：广告  ← 分类不在白名单的测试条目
+  
+  共 5 条：通过 1，拒绝 4
+退出码：1（存在被拒条目时返回 1）
+
+===== 7. 数据落盘情况 =====
+data/news.json 条数 29 更新时间 2026-11-09T22:52:25+08:00 有摘要 16 被拒 0
+data/news-cache.json 条数 29 写入时间 2026-11-09T22:52:25+08:00
+data/news.js 前 60 字： window.NEWS_DATA = {"updated_at": "2026-11-09T22:52:25+08:00
+
+===== 8. 重启服务后数据是否还在 =====
+（上一节记录：data/news.json 更新时间 2026-11-09T22:52:25+08:00，29 条）
+重启：python server.py --port 8000
+{"ok": true, "version": "v0.4.0", "uptime_seconds": 5, "cache_age_seconds": 38, "refreshing": false}
+{
+  "ok": true,
+  "updated_at": "2026-11-09T22:52:25+08:00",
+  "count": 2,
+  "stale": false,
+  "cache_age_seconds": 38,
+  "refreshing": false
+}
+首条摘要长度： 111 ｜分类： 教务
+结论：updated_at 与重启前一致、摘要仍在 → 数据来自磁盘，不是内存

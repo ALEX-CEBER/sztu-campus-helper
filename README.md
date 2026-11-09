@@ -17,41 +17,51 @@ AI 氛围编程（Vibe Coding）公选课学期课题 · **校园办事问答（
 ## 📰 校园资讯模块
 | 项 | 说明 |
 |---|---|
-| 数据获取 | 解析校园通列表页 HTML（博达 CMS 服务端直出），非浏览器直连 → 规避跨域 |
-| 抓取脚本 | `python scripts/fetch_news.py`（重试/限频/缓存兜底） |
+| 数据获取 | 解析校园通列表页 HTML（博达 CMS 服务端直出），由本地服务抓取后经 `/api/news` 返回 |
+| 实时刷新 | 页面每次打开、切到资讯页、点刷新、从别的窗口切回来，都会重新请求一次；服务端缓存 60 秒 |
+| 接口 | `GET /api/news?max=30&force=0`，约定见 [docs/api.md](docs/api.md) |
+| 抓取脚本 | `python scripts/fetch_news.py`（重试/限频/字段校验/缓存兜底） |
 | 配置 | `config/news.json`（源地址、条数、超时、重试、间隔、摘要长度） |
 | 定时同步 | GitHub Actions 每 6 小时（`.github/workflows/sync-news.yml`）+ `同步校园资讯.bat` 本地一键 |
-| 失败兜底 | 重试 3 次 → 换源 → 读 `data/news-cache.json`（标 stale）→ 展示"打开校园通" |
+| 失败兜底 | 重试 3 次 → 换源 → 读 `data/news-cache.json`（标 stale）→ 页面退到内嵌快照并给出提示 |
 | 详见 | [docs/校园资讯模块说明.md](docs/校园资讯模块说明.md) |
 
 ## 🚀 怎么打开（任选）
 
-**① 最省事：双击 `dist/SZTU校园办事万事屋.html`**
-单文件版——CSS/JS/知识库/资讯/看板娘全内嵌，约 2.1MB，不需要服务器、断网也能用、可直接发给同学。
-> 改了知识库后要重新生成：`python scripts/build_standalone.py`
+**① 想看到实时资讯：双击 `start.bat`**
+会启动本地服务（`server.py`）并自动打开 `http://localhost:8000/`。
+页面和接口同源，所以资讯能真的抓官网；关掉黑窗口即停止。
 
-**② 开发模式（改代码时用）**
-- 双击 `start.bat`，或命令行 `python -m http.server 8000` → 访问 `http://localhost:8000/web/`
-- VS Code 装 Live Server 插件，右键 `web/index.html` → Open with Live Server
+**② 只想看界面/断网演示：双击 `dist/SZTU校园办事万事屋.html`**
+单文件版——CSS/JS/知识库/资讯快照/看板娘全内嵌，约 2.1MB，不需要服务器。
+此时没有 `/api/news`，页面会显示「离线快照」并提示用 `start.bat` 开实时。
 
-> 说明：知识库已同时生成 `data/qa.js` 内嵌数据，所以直接双击 `web/index.html` 也能提问；
-> 只有在预览工具不支持上级目录路径时才需要 ① 或 ②。
+> 改了知识库或前端后：`python scripts/build_index.py`（改了知识库才需要）+ `python scripts/build_standalone.py`
 
-## 🛠 改完知识库后
+## 🛠 常用命令
 ```bash
-python scripts/build_index.py   # 重新生成 data/qa.json，刷新网页即可
+python server.py                      # 起本地服务（页面 + /api/news）
+python server.py --port 8100 --open   # 换端口并自动开浏览器
+python scripts/fetch_news.py          # 命令行抓一次资讯，写入 data/news.json
+python scripts/validate_news.py data/news.json   # 按字段规则复核数据
+python scripts/build_index.py         # 知识库 Markdown → qa.json / qa.js
 ```
 
 ## 📁 目录结构
 ```
-├── data/knowledge/   知识库 Markdown（答案在这里改）
-├── data/qa.json      构建产物（勿手改）
-├── scripts/          构建脚本
-├── web/              前端页面
-├── assets/           看板娘等素材
-├── docs/             文档（Git 教程、报告规划）
-├── reports/          每周报告 .md
-└── start.bat         一键启动
+├── server.py             本地服务：静态页 + /api/news 实时资讯接口
+├── data/knowledge/       知识库 Markdown（答案在这里改）
+├── data/news.json        最近一次抓取的资讯（接口与命令行共用）
+├── data/qa.json          构建产物（勿手改）
+├── scripts/news_source.py 抓取、解析、字段校验（命令行与接口共用）
+├── scripts/              构建与校验脚本
+├── web/                  前端页面（index/app/news/style/search-core）
+├── tests/fixtures/       校验样例（含故意写错的条目）
+├── assets/               看板娘等素材
+├── docs/api.md           资讯接口约定
+├── docs/                 其他文档（Git 教程、模块说明、报告规划）
+├── reports/              每周报告与截图
+└── start.bat             一键启动本地服务
 ```
 
 ## ⚠️ 数据声明

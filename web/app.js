@@ -24,6 +24,14 @@ async function loadQA() {
   }
   renderChips();
   renderHot();
+
+  // 顶部一行小字：数据规模与检索方式，让人知道答案是本地算出来的
+  const statBox = document.getElementById("stats");
+  if (statBox) {
+    const cats = new Set(state.qa.map(i => i.category).filter(Boolean));
+    const pending = state.qa.filter(i => String(i.answer).includes("[待核实]")).length;
+    statBox.textContent = `知识库 ${state.qa.length} 条 · ${cats.size} 个分类 · ${pending} 条待核实 · 检索在本机完成，断网也能问`;
+  }
 }
 
 // ---------- 渲染 ----------
