@@ -1,5 +1,7 @@
 /* 校园资讯 —— 优先读本地接口 /api/news（实时抓官网），拿不到就用内嵌快照
-   约定见 docs/api.md。页面加载、切到资讯页、点刷新、从别的窗口切回来，都会重新拉一次。
+   约定见 docs/api.md。
+   首屏（打开页面）即带 force=1 强制抓取最新数据，无需手动点刷新；
+   切到资讯页/切回窗口/定时轮询仍走缓存（force=0），避免频繁打扰源站。
 */
 (function () {
   const panel = document.getElementById("newsPanel");
@@ -268,7 +270,7 @@
   }, 90000);
 
   window.News = {
-    init: () => load({ force: false }),
+    init: () => load({ force: true }),
     refresh: () => load({ force: true }),
     switchView,
     state
@@ -277,7 +279,8 @@
   const wantNews = location.hash === "#news" ||
     new URLSearchParams(location.search).get("view") === "news";
 
-  load({ force: false }).then(() => {
+  // 打开页面立刻强制抓取一次最新数据（原来 force:false 只会吃 60 秒内的旧缓存）
+  load({ force: true }).then(() => {
     if (wantNews) switchView("news");
   });
 })();

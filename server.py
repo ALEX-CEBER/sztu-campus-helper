@@ -241,6 +241,12 @@ class Handler(BaseHTTPRequestHandler):
         if target.is_dir():
             target = target / "index.html"
         if not target.exists():
+            # web/index.html 里用相对路径引用 style.css/app.js/news.js/search-core.js，
+            # 浏览器从 "/" 加载时会解析成 /xxx（根路径），实际文件在 web/ 下，回退查找。
+            fallback = (ROOT / "web" / rel).resolve()
+            if ROOT in fallback.parents and fallback.is_file():
+                target = fallback
+        if not target.exists():
             return self.error_json(404, "NOT_FOUND", "文件不存在", rel)
 
         ctype = mimetypes.guess_type(target.name)[0] or "application/octet-stream"
